@@ -32,7 +32,7 @@ public class GuiScratch extends JFrame {
         super("Ultimate Frisbee Score Keeper");
         JPanel parent = new JPanel();
         add(parent);
-        setSize(600,400);
+        setSize(700,600);
         setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JPanel players = new JPanel();
@@ -45,31 +45,37 @@ public class GuiScratch extends JFrame {
 
         
         players.add(new JLabel("Players"));
-//        players.add(new JLabel("Z"));
-//        players.add(new JLabel("D"));
-//        players.add(new JLabel("R"));
-//        players.add(new JLabel("E"));
-//        players.add(new JLabel("K"));
-//        players.add(new JLabel("A"));
-//        players.add(new JLabel("N"));
+          JLabel p1 = new JLabel("Z");
+          JLabel p2 = new JLabel("D");
+          JLabel p3 = new JLabel("R");
+          JLabel p4 = new JLabel("E");
+          JLabel p5 = new JLabel("A");
+          JLabel p6 = new JLabel("N");
+          JLabel p7 = new JLabel("K");
+          JLabel[] play_arr = {p1,p2,p3,p4,p5,p6,p7};
+//          for (JLabel j: play_arr) {
+//              players.add(j);
+//          }
+          
+
         parent.add(players);
         
-        JPanel tway = new JPanel();
+        JPanel o_grid = new JPanel();
         GridLayout g = new GridLayout(7,2);
         
         for (int i = 0; i < 7; i++) {
-            tway.add(new JLabel("P"));
-            tway.add(new JButton("T"));
-            tway.add(new JButton("A"));
-            tway.add(new JButton("D"));
-            tway.add(new JButton("S"));
+            o_grid.add(play_arr[i]);
+            o_grid.add(new JButton("T"));
+            o_grid.add(new JButton("A"));
+            o_grid.add(new JButton("D"));
+            o_grid.add(new JButton("S"));
         }
         
-        tway.setBorder(BorderFactory.createEmptyBorder(100,50,10,10));
+        o_grid.setBorder(BorderFactory.createEmptyBorder(100,50,10,10));
         g.setHgap(30);
         g.setVgap(30);
-        tway.setLayout(g);
-        parent.add(tway);
+        o_grid.setLayout(g);
+        parent.add(o_grid);
         
 
         
