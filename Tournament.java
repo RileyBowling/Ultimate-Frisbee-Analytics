@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class Tournament {
 	private ArrayList<Game> games;
@@ -14,11 +15,11 @@ public class Tournament {
 	}
 	
 	public void removeGame() {
-		//use iterator
+		//add remove
 	}
 	
-	public Game getGame(int i) {
-		return games.get(i);
+	public ListIterator<Game> getGameIterator() {
+		return games.listIterator();				
 	}
 	
 	public String getName() {

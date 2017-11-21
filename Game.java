@@ -8,8 +8,18 @@ public class Game {
 	private int gameLimit;
 	private boolean gameOver;
 	
-	public Game(Team t) {
+	public Game(Team t, String e) {
 		ourTeam = t;
+		enemyName = e;
+		
+		//gamedate = systemdate
+		ourScore = 0;
+		enemyScore = 0;
+		gameOver = false;
+	}
+	
+	public Team getTeam() {
+		return ourTeam;
 	}
 	
 	public String getEnemyName() {

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class Player {
 	private ArrayList<Stats> stats;
@@ -6,9 +7,10 @@ public class Player {
 	private String nickname;
 	private int number;
 	
-	public Player(String n, String nick) {
+	public Player(String n, String nick, int num) {
 		name = n;
 		nickname = nick;
+		number = num;
 		stats = new ArrayList<Stats>();
 	}
 	
@@ -16,12 +18,26 @@ public class Player {
 		stats.add(s);
 	}
 	
-	public void removeStats() {
-		//use iterator
+	public void removeStats(Game g) {
+		ListIterator<Stats> iter = stats.listIterator();
+		while(iter.hasNext()) {
+			if (iter.next().getGame() == g)
+				iter.remove();
+		}
 	}
 	
-	public Stats getStats(int i) {
-		return stats.get(i);
+	public ListIterator<Stats> getStatsIterator() {
+		return stats.listIterator();				
+	}
+	
+	public Stats getStats(Game g) {
+		ListIterator<Stats> iter = stats.listIterator();
+		while(iter.hasNext()) {
+			Stats st = iter.next();
+			if (st.getGame() == g)
+				return st;
+		}
+		return new Stats(g);
 	}
 	
 	public String getName() {
