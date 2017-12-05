@@ -14,18 +14,10 @@ import javax.swing.*;
  *
  * @author Zohair
  */
-public class GameMenu extends JFrame {
-    
-
-
+public class GameMenu extends UltimateMenu {
 
     public GameMenu(Game game) {
-        super("Ultimate Frisbee Score Keeper");
-        JPanel parent = new JPanel();
-        add(parent);
-        setSize(600,400);
-        setResizable(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        makeWindow();
         
         Team team = game.getTeam();
         
@@ -95,13 +87,15 @@ public class GameMenu extends JFrame {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementScores();
+        			game.IncrementScore(1);
+        			//updateScore();
         			sbutton.setText(String.valueOf(st.getScores()));
         		} 
         	});
         }
   
-        parent.add(playerDisplay);
-        parent.add(scoreDisplay);
+        addPanel(playerDisplay);
+        addPanel(scoreDisplay);
         
 //        JPanel card1 = new JPanel();
 //        card1.add(new JButton("Button 2"));

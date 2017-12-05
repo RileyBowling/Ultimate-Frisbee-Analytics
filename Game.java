@@ -50,12 +50,12 @@ public class Game {
 		enemyName = n;
 	}
 	
-	public void setOurScore(int s) {
-		ourScore = s;
+	public void IncrementScore(int s) {
+		ourScore += s;
 	}
 	
-	public void setEnemyScore(int s) {
-		enemyScore = s;
+	public void IncrementEnemyScore(int s) {
+		enemyScore += s;
 	}
 	
 	public void setGameDate(int d) {
