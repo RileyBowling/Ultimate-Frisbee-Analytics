@@ -51,6 +51,8 @@ public class GameMenu extends JFrame {
         scoreDisplay.add(new JLabel("D"));
         scoreDisplay.add(new JLabel("S"));
         //probably a better way to fill empty grid spots
+                
+        JTextField g_scoreDisplay = new JTextField();
         
         ListIterator<Player> players = team.getPlayerIterator();
         while (players.hasNext()) {
@@ -65,6 +67,7 @@ public class GameMenu extends JFrame {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementThrowaways();
+                                updateScore(game,g_scoreDisplay);
         			tbutton.setText(String.valueOf(st.getThrowaways()));
         		} 
         	});
@@ -75,6 +78,7 @@ public class GameMenu extends JFrame {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementAssists();
+                                updateScore(game,g_scoreDisplay);
         			abutton.setText(String.valueOf(st.getAssists()));
         		} 
         	});
@@ -85,6 +89,7 @@ public class GameMenu extends JFrame {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementDrops();
+                                updateScore(game,g_scoreDisplay);
         			dbutton.setText(String.valueOf(st.getDrops()));
         		} 
         	});
@@ -95,13 +100,18 @@ public class GameMenu extends JFrame {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementScores();
+                                updateScore(game,g_scoreDisplay);
         			sbutton.setText(String.valueOf(st.getScores()));
         		} 
         	});
         }
-  
+        
+
+        
+        
         parent.add(playerDisplay);
         parent.add(scoreDisplay);
+        parent.add(g_scoreDisplay);
         
 //        JPanel card1 = new JPanel();
 //        card1.add(new JButton("Button 2"));
@@ -109,5 +119,11 @@ public class GameMenu extends JFrame {
 //        card2.add(card1);
 //        add(card1);
     }
+    public void updateScore(Game g,JTextField f) {
+        String game_score = String.valueOf(g.getOurScore()) + 
+            "-"+String.valueOf(g.getOurScore());
+        f.setText(game_score);
+    }
+
     
 }
