@@ -12,7 +12,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Riley
+ * @author Zohair
  */
 public class GameMenu extends UltimateMenu {
 
@@ -43,6 +43,11 @@ public class GameMenu extends UltimateMenu {
         scoreDisplay.add(new JLabel("D"));
         scoreDisplay.add(new JLabel("S"));
         //probably a better way to fill empty grid spots
+                
+        JLabel g_scoreLbl = new JLabel("Game Score");     
+        JTextField g_scoreDisplay = new JTextField(10);
+        g_scoreDisplay.setEditable(false);
+        
         
         ListIterator<Player> players = team.getPlayerIterator();
         while (players.hasNext()) {
@@ -87,15 +92,34 @@ public class GameMenu extends UltimateMenu {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementScores();
-        			game.IncrementScore(1);
-        			//updateScore();
+                                game.IncrementScore(1);
+//<<<<<<< HEAD
+                                updateTotScore(game,g_scoreDisplay);
+//=======
+        			
+        			// updateScore();
+//>>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
         			sbutton.setText(String.valueOf(st.getScores()));
         		} 
         	});
         }
+//<<<<<<< HEAD
+        
+
+        
+        
+//        parent.add(playerDisplay);
+//        parent.add(scoreDisplay);
+//        parent.add(g_scoreDisplay);
+//=======
   
-        getWindow().add(playerDisplay);
-        getWindow().add(scoreDisplay);
+        addJComp(playerDisplay);
+        addJComp(scoreDisplay);
+        addJComp(g_scoreLbl);
+        addJComp(g_scoreDisplay);
+
+
+//>>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
         
 //        JPanel card1 = new JPanel();
 //        card1.add(new JButton("Button 2"));
@@ -103,5 +127,11 @@ public class GameMenu extends UltimateMenu {
 //        card2.add(card1);
 //        add(card1);
     }
+    public void updateTotScore(Game g,JTextField f) {
+        String game_score = String.valueOf(g.getOurScore()) + 
+            "-"+String.valueOf(g.getEnemyScore());
+        f.setText(game_score);
+    }
+
     
 }
