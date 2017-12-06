@@ -20,9 +20,10 @@ public class GameMenu extends UltimateMenu {
         makeWindow();
         
         Team team = game.getTeam();
-        
+        JPanel flow = new JPanel(new FlowLayout());
         //player column
         JPanel playerDisplay = new JPanel();
+        flow.add(playerDisplay);
         GridLayout g1 = new GridLayout(team.getTeamSize()+1,1);
         g1.setHgap(30);
         g1.setVgap(30);
@@ -32,6 +33,7 @@ public class GameMenu extends UltimateMenu {
         
         //scoring column
         JPanel scoreDisplay = new JPanel();
+        flow.add(scoreDisplay);
         GridLayout g2 = new GridLayout(team.getTeamSize()+1,4);
         
         g2.setHgap(10);
@@ -43,10 +45,13 @@ public class GameMenu extends UltimateMenu {
         scoreDisplay.add(new JLabel("D"));
         scoreDisplay.add(new JLabel("S"));
         //probably a better way to fill empty grid spots
-                
-        JLabel g_scoreLbl = new JLabel("Game Score");     
+        
+        JPanel gameScorePnl = new JPanel();
+        JLabel g_scoreLbl = new JLabel("Game Score"); 
         JTextField g_scoreDisplay = new JTextField(10);
         g_scoreDisplay.setEditable(false);
+        gameScorePnl.add(g_scoreLbl);
+        gameScorePnl.add(g_scoreDisplay);
         
         
         ListIterator<Player> players = team.getPlayerIterator();
@@ -107,16 +112,17 @@ public class GameMenu extends UltimateMenu {
         
 
         
-        
-//        parent.add(playerDisplay);
-//        parent.add(scoreDisplay);
-//        parent.add(g_scoreDisplay);
+
 //=======
-  
-        addJComp(playerDisplay);
-        addJComp(scoreDisplay);
-        addJComp(g_scoreLbl);
-        addJComp(g_scoreDisplay);
+        
+        JPanel parent = new JPanel( new GridLayout(2,1));
+        parent.add(flow);
+        parent.add(gameScorePnl);
+        getWindow().add(parent);
+//        getWindow().add(playerDisplay);
+//        getWindow().add(scoreDisplay);
+//        getWindow().add(g_scoreLbl);
+//        getWindow().add(g_scoreDisplay);
 
 
 //>>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
