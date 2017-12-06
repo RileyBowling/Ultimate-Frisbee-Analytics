@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -61,7 +62,7 @@ public class UltimateMenu extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
-	public void addPanel(JPanel p) {
+	public void addJComp(JComponent p) {
 		parent.add(p);
 	}
 

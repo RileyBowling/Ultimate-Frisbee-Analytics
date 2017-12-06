@@ -44,10 +44,10 @@ public class GameMenu extends UltimateMenu {
         scoreDisplay.add(new JLabel("S"));
         //probably a better way to fill empty grid spots
                 
-        JLabel g_scoreLbl = new JLabel();   
-        g_scoreLbl.setText("Game Score: ");     
-        JTextField g_scoreDisplay = new JTextField(30);
+        JLabel g_scoreLbl = new JLabel("Game Score");     
+        JTextField g_scoreDisplay = new JTextField(10);
         g_scoreDisplay.setEditable(false);
+        
         
         ListIterator<Player> players = team.getPlayerIterator();
         while (players.hasNext()) {
@@ -62,7 +62,6 @@ public class GameMenu extends UltimateMenu {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementThrowaways();
-                                updateTotScore(game,g_scoreDisplay);
         			tbutton.setText(String.valueOf(st.getThrowaways()));
         		} 
         	});
@@ -73,7 +72,6 @@ public class GameMenu extends UltimateMenu {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementAssists();
-                                updateTotScore(game,g_scoreDisplay);
         			abutton.setText(String.valueOf(st.getAssists()));
         		} 
         	});
@@ -84,7 +82,6 @@ public class GameMenu extends UltimateMenu {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementDrops();
-                                updateTotScore(game,g_scoreDisplay);
         			dbutton.setText(String.valueOf(st.getDrops()));
         		} 
         	});
@@ -95,29 +92,34 @@ public class GameMenu extends UltimateMenu {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			st.incrementScores();
-<<<<<<< HEAD
+                                game.IncrementScore(1);
+//<<<<<<< HEAD
                                 updateTotScore(game,g_scoreDisplay);
-=======
-        			game.IncrementScore(1);
+//=======
+        			
         			// updateScore();
->>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
+//>>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
         			sbutton.setText(String.valueOf(st.getScores()));
         		} 
         	});
         }
-<<<<<<< HEAD
+//<<<<<<< HEAD
         
 
         
         
-        parent.add(playerDisplay);
-        parent.add(scoreDisplay);
-        parent.add(g_scoreDisplay);
-=======
+//        parent.add(playerDisplay);
+//        parent.add(scoreDisplay);
+//        parent.add(g_scoreDisplay);
+//=======
   
-        addPanel(playerDisplay);
-        addPanel(scoreDisplay);
->>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
+        addJComp(playerDisplay);
+        addJComp(scoreDisplay);
+        addJComp(g_scoreLbl);
+        addJComp(g_scoreDisplay);
+
+
+//>>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
         
 //        JPanel card1 = new JPanel();
 //        card1.add(new JButton("Button 2"));
@@ -127,7 +129,7 @@ public class GameMenu extends UltimateMenu {
     }
     public void updateTotScore(Game g,JTextField f) {
         String game_score = String.valueOf(g.getOurScore()) + 
-            "-"+String.valueOf(g.getOurScore());
+            "-"+String.valueOf(g.getEnemyScore());
         f.setText(game_score);
     }
 
