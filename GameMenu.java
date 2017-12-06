@@ -12,7 +12,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Zohair
+ * @author Riley
  */
 public class GameMenu extends UltimateMenu {
 
@@ -94,8 +94,8 @@ public class GameMenu extends UltimateMenu {
         	});
         }
   
-        addPanel(playerDisplay);
-        addPanel(scoreDisplay);
+        getWindow().add(playerDisplay);
+        getWindow().add(scoreDisplay);
         
 //        JPanel card1 = new JPanel();
 //        card1.add(new JButton("Button 2"));

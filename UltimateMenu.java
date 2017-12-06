@@ -7,29 +7,30 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class UltimateMenu extends JFrame{
-	private JPanel parent;
+	private JPanel window;
+	private UltimateSystem ult;
 	
 	public UltimateMenu() {
 		super("Ultimate Frisbee Score Keeper");
 		makeWindow();
         
         GridLayout g = new GridLayout(4,1);
-        parent.setLayout(g);
+        window.setLayout(g);
         
-		UltimateSystem ult = new UltimateSystem();
+		ult = new UltimateSystem();
 		
 		JButton button1 = new JButton("New Tournament");
-    	parent.add(button1);
+    	window.add(button1);
     	button1.addActionListener(new ActionListener() { 
     		public void actionPerformed(ActionEvent e) { 
-    			
-    			
+    			TournamentCreationMenu tcm = new TournamentCreationMenu();
+    			tcm.setVisible(true);
     			//ult.addTournament(t);
     		} 
     	});
     	
     	JButton button2 = new JButton("Tournament List");
-    	parent.add(button2);
+    	window.add(button2);
     	button2.addActionListener(new ActionListener() { 
     		public void actionPerformed(ActionEvent e) { 
     			//stuff
@@ -37,7 +38,7 @@ public class UltimateMenu extends JFrame{
     	});
     	
     	JButton button3 = new JButton("New Team");
-    	parent.add(button3);
+    	window.add(button3);
     	button3.addActionListener(new ActionListener() { 
     		public void actionPerformed(ActionEvent e) { 
     			//stuff
@@ -45,7 +46,7 @@ public class UltimateMenu extends JFrame{
     	});
     	
     	JButton button4 = new JButton("Team List");
-    	parent.add(button4);
+    	window.add(button4);
     	button4.addActionListener(new ActionListener() { 
     		public void actionPerformed(ActionEvent e) { 
     			//stuff
@@ -54,15 +55,15 @@ public class UltimateMenu extends JFrame{
 	}
 	
 	public void makeWindow() {
-		parent = new JPanel();
-        add(parent);
+		window = new JPanel();
+        add(window);
         setSize(600,400);
         setResizable(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
-	public void addPanel(JPanel p) {
-		parent.add(p);
+	public JPanel getWindow() {
+		return window;
 	}
 
 }
