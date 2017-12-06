@@ -6,10 +6,13 @@
 
 /**
  *
- * @author Zohair
+ * @author Zohair, Riley
  */
 public class Main {
         public static void main(String[] args) {
+        	//in the final version all of this code will happen through the full GUI and we'll only have to initialize UltimateSystem
+        	//this is manual testing of just the game menu GUI
+        
         	Player p1 = new Player("John Smith", "Speedy J", 1);
         	Player p2 = new Player("Carl Carlson", "FrizMaster", 13);
         	Player p3 = new Player("Sarah Jones", "The Destroyer", 97);
@@ -25,11 +28,13 @@ public class Main {
         	team.addPlayer(p5);
         	
         	Game game = new Game(team, "The Bad Guys");
-        	//in the final version all of the above code will happen through the full GUI and we'll only have to initialize UltimateSystem
-        	//for now it's all done manually to test just the game menu GUI
         	
         	GameMenu window = new GameMenu(game);
         	window.setVisible(true);
+        	
+        	//this is all the code we'll need in the end
+        	//UltimateMenu ult = new UltimateMenu();
+        	//ult.setVisible(true);
     }
         
 }
