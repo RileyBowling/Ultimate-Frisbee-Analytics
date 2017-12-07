@@ -18,6 +18,8 @@ public class GameMenu extends UltimateMenu {
 
     public GameMenu(Game game) {
         makeWindow();
+
+        JPanel parent = new JPanel( new GridLayout(2,1));
         
         Team team = game.getTeam();
         JPanel flow = new JPanel(new FlowLayout());
@@ -40,10 +42,7 @@ public class GameMenu extends UltimateMenu {
         g2.setVgap(20);
         scoreDisplay.setLayout(g2);
         scoreDisplay.setBorder(BorderFactory.createEmptyBorder(0,30,0,0));
-        scoreDisplay.add(new JLabel("T"));
-        scoreDisplay.add(new JLabel("A"));
-        scoreDisplay.add(new JLabel("D"));
-        scoreDisplay.add(new JLabel("S"));
+        scoreButtonLabeler(scoreDisplay);
         //probably a better way to fill empty grid spots
         
         JPanel gameScorePnl = new JPanel();
@@ -63,11 +62,12 @@ public class GameMenu extends UltimateMenu {
         	
         	JButton tbutton = new JButton("0");
         	scoreDisplay.add(tbutton);
+                
         	tbutton.addActionListener(new ActionListener() { 
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
-        			st.incrementThrowaways();
-        			tbutton.setText(String.valueOf(st.getThrowaways()));
+                                t_setup(st,tbutton);
+
         		} 
         	});
         	
@@ -76,8 +76,7 @@ public class GameMenu extends UltimateMenu {
         	abutton.addActionListener(new ActionListener() { 
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
-        			st.incrementAssists();
-        			abutton.setText(String.valueOf(st.getAssists()));
+        			a_setup(st,abutton);
         		} 
         	});
         	
@@ -86,8 +85,7 @@ public class GameMenu extends UltimateMenu {
         	dbutton.addActionListener(new ActionListener() { 
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
-        			st.incrementDrops();
-        			dbutton.setText(String.valueOf(st.getDrops()));
+        			d_setup(st,dbutton);
         		} 
         	});
         	
@@ -96,15 +94,15 @@ public class GameMenu extends UltimateMenu {
         	sbutton.addActionListener(new ActionListener() { 
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
-        			st.incrementScores();
-                                game.IncrementScore(1);
-//<<<<<<< HEAD
+        			s_setup(st,sbutton);
+                                scoreIncrementer(game);
                                 updateTotScore(game,g_scoreDisplay);
+
 //=======
         			
         			// updateScore();
 //>>>>>>> 885ade9cde3aa26e8fc387fee5c906e52ee46691
-        			sbutton.setText(String.valueOf(st.getScores()));
+
         		} 
         	});
         }
@@ -115,7 +113,7 @@ public class GameMenu extends UltimateMenu {
 
 //=======
         
-        JPanel parent = new JPanel( new GridLayout(2,1));
+        
         parent.add(flow);
         parent.add(gameScorePnl);
         getWindow().add(parent);
@@ -138,6 +136,29 @@ public class GameMenu extends UltimateMenu {
             "-"+String.valueOf(g.getEnemyScore());
         f.setText(game_score);
     }
+    public void scoreButtonLabeler (JPanel jp){
+//////        jp.add(new JLabel("T"));
+//////        jp.add(new JLabel("A"));
+//////        jp.add(new JLabel("D"));
+//////        jp.add(new JLabel("S"));
+   }
+    public void t_setup(Stats st, JButton tbutton) {
 
+    }
+        public void a_setup(Stats st, JButton abutton) {
+
+    }
+        public void d_setup(Stats st, JButton dbutton) {
+
+    }
+        public void s_setup(Stats st, JButton sbutton) {
+
+    }
+        public void scoreIncrementer(Game g) {
+            
+        }
+        public void removeWindow(JPanel parent) {
+           
+        }
     
 }
