@@ -15,9 +15,10 @@ import javax.swing.*;
  * @author Zohair
  */
 public class OffensiveMenu extends GameMenu {
-
-    public OffensiveMenu(Game game) {
-        super(game);
+    
+    public OffensiveMenu(Game game,ActionListener o,ActionListener d) {
+        super(game,o,d);
+        
     }
 
         public void scoreButtonLabeler (JPanel jp){
@@ -31,7 +32,7 @@ public class OffensiveMenu extends GameMenu {
         	st.incrementThrowaways();
         	tbutton.setText(String.valueOf(st.getThrowaways()));
     }
-        public void a_setup(Stats st, JButton abutton) {
+        public void a_setup(Stats st, JButton abutton, Game g) {
         	st.incrementAssists();
         	abutton.setText(String.valueOf(st.getAssists()));
     }
@@ -39,13 +40,13 @@ public class OffensiveMenu extends GameMenu {
         	st.incrementDrops();
         	dbutton.setText(String.valueOf(st.getDrops()));
     }
-        public void s_setup(Stats st, JButton sbutton) {
+        public void s_setup(Stats st, JButton sbutton, Game g) {
         	st.incrementScores();
         	sbutton.setText(String.valueOf(st.getScores()));
     }
-        public void scoreIncrementer(Game g) {
-            g.IncrementScore(1);
-        }
+//        public void scoreIncrementer(Game g) {
+//            g.IncrementScore(1);
+//        }
 
 
     

@@ -14,12 +14,15 @@ import javax.swing.*;
  *
  * @author Zohair
  */
-public class GameMenu extends UltimateMenu {
+public class GameMenu extends JPanel {
+   
+    public GameMenu(Game game, ActionListener o, ActionListener d) {
+        
 
-    public GameMenu(Game game) {
-        makeWindow();
-
-        JPanel parent = new JPanel( new GridLayout(2,1));
+        setLayout(new GridLayout(2,1));
+//        getWindow().setLayout(new CardLayout());
+//        JPanel parent = new JPanel( new GridLayout(2,1));
+        
         
         Team team = game.getTeam();
         JPanel flow = new JPanel(new FlowLayout());
@@ -76,7 +79,9 @@ public class GameMenu extends UltimateMenu {
         	abutton.addActionListener(new ActionListener() { 
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
-        			a_setup(st,abutton);
+        			a_setup(st,abutton,game);
+                                game.IncrementEnemyScore(1);
+                                updateTotScore(game,g_scoreDisplay);
         		} 
         	});
         	
@@ -94,8 +99,9 @@ public class GameMenu extends UltimateMenu {
         	sbutton.addActionListener(new ActionListener() { 
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
-        			s_setup(st,sbutton);
-                                scoreIncrementer(game);
+        			s_setup(st,sbutton,game);
+                                game.IncrementScore(1);
+//                                scoreIncrementer(game);
                                 updateTotScore(game,g_scoreDisplay);
 
 //=======
@@ -105,6 +111,9 @@ public class GameMenu extends UltimateMenu {
 
         		} 
         	});
+                sbutton.addActionListener(o);
+//                sbutton.addActionListener(d);
+                abutton.addActionListener(d);
         }
 //<<<<<<< HEAD
         
@@ -114,9 +123,9 @@ public class GameMenu extends UltimateMenu {
 //=======
         
         
-        parent.add(flow);
-        parent.add(gameScorePnl);
-        getWindow().add(parent);
+        add(flow);
+        add(gameScorePnl);
+
 //        getWindow().add(playerDisplay);
 //        getWindow().add(scoreDisplay);
 //        getWindow().add(g_scoreLbl);
@@ -131,6 +140,7 @@ public class GameMenu extends UltimateMenu {
 //        card2.add(card1);
 //        add(card1);
     }
+    
     public void updateTotScore(Game g,JTextField f) {
         String game_score = String.valueOf(g.getOurScore()) + 
             "-"+String.valueOf(g.getEnemyScore());
@@ -145,18 +155,18 @@ public class GameMenu extends UltimateMenu {
     public void t_setup(Stats st, JButton tbutton) {
 
     }
-        public void a_setup(Stats st, JButton abutton) {
+        public void a_setup(Stats st, JButton abutton, Game g) {
 
     }
         public void d_setup(Stats st, JButton dbutton) {
 
     }
-        public void s_setup(Stats st, JButton sbutton) {
+        public void s_setup(Stats st, JButton sbutton, Game g) {
 
     }
-        public void scoreIncrementer(Game g) {
-            
-        }
+//        public void scoreIncrementer(Game g) {
+//            
+//        }
         public void removeWindow(JPanel parent) {
            
         }

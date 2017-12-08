@@ -32,6 +32,18 @@ public class Stats {
 	public int getDrops() {
 		return drops;
 	}
+        public int getDs() {
+		return dpoints;
+	}
+        public int getTurnovers() {
+            return turnovers;
+        }
+        public int getCallahans() {
+            return callahans;
+        }
+        public int getEnemyScore() {
+            return game.getEnemyScore();
+        }
 	
 	public void incrementScores() {
 		scores+=1;
@@ -48,6 +60,16 @@ public class Stats {
 	public void incrementDrops() {
 		drops+=1;
 	}
+        public void incrementDs() {
+		dpoints+=1;
+	}
+        public void incrementTurnovers() {
+		turnovers+=1;
+	}
+         public void incrementCallahans() {
+		callahans+=1;
+	}
+         
 	
 
 }

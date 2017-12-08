@@ -16,8 +16,8 @@ import javax.swing.*;
  */
 public class DefensiveMenu extends GameMenu {
 
-    public DefensiveMenu(Game game) {
-        super(game);
+    public DefensiveMenu(Game game, ActionListener o, ActionListener d) {
+        super(game,o,d);
     }
 
         public void scoreButtonLabeler (JPanel jp){
@@ -26,19 +26,23 @@ public class DefensiveMenu extends GameMenu {
         jp.add(new JLabel("T"));
         jp.add(new JLabel("C"));
     }
-        public void t_setup(Stats st, JButton tbutton) {
-
+       public void t_setup(Stats st, JButton tbutton) {
+        	st.incrementDs();
+        	tbutton.setText(String.valueOf(st.getDs()));
     }
-        public void a_setup(Stats st, JButton abutton) {
-
+        public void a_setup(Stats st, JButton abutton, Game g) {
+//        	g.IncrementEnemyScore(1);
+        	abutton.setText(String.valueOf(st.getEnemyScore()));
     }
         public void d_setup(Stats st, JButton dbutton) {
-
+        	st.incrementTurnovers();
+        	dbutton.setText(String.valueOf(st.getTurnovers()));
     }
-        public void s_setup(Stats st, JButton sbutton) {
-
+        public void s_setup(Stats st, JButton sbutton, Game g) {
+                st.incrementCallahans();
+        	sbutton.setText(String.valueOf(st.getCallahans()));
     }
-       public void scoreIncrementer(Game g) {
-            g.IncrementEnemyScore(1);
-        }
+//       public void scoreIncrementer(Game g) {
+//            g.IncrementEnemyScore(1);
+//        }
 }
