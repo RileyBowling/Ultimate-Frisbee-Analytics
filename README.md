@@ -1,13 +1,13 @@
 # Ultimate Frisbee Analytics
-# A Final Project for CS 2300 at Saint Louis University
+## A Final Project for CS 2300 at Saint Louis University
 
-Group: Riley, Zohair, Amy
+### Group: Riley, Zohair, Amy
 
-Project Objective:
+### Project Objective:
 (given by our simulated clients)
 Create an application for tracking statistics in the sport Ultimate Frisbee.
 
-Project Overview:
+#### Project Overview:
 We made a program that gives the full funcionality needed for storing Ultimate Frisbee match statistics. This includes sorting games by Tournamment, 
 team creation, player creation and of course live stat tracking. 
 
@@ -16,7 +16,7 @@ view the created teams and their players("Teams") or choose tournaments and crea
 the subsequent "New Game" button). Once you make a game you are brought to the stat tracking window where you can keep track of all the 
 various plays in an Ultimate Frisbee game. Finally, you can browse the archived stats of games you've already made in a tournament("Games").
 
-Project Notes: 
+#### Additional Project Notes: 
 We realize there are a few things a stat tracking app you'd find in the real world would have that our project does not. Firstly edit/delete 
 functionality. We decided to hold off on implementing it simply because our hands were full enough creating the full front-end without 
 managing edit windows and delete buttons. The setter/remove methods and logic is all there if somebody did want to add that functionality. 
