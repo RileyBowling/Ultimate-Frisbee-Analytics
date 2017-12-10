@@ -8,7 +8,7 @@ public class Game {
 	private int gameLimit;
 	private boolean gameOver;
 	
-	public Game(Team t, String e) {
+	public Game(Team t, String e, String gl) {
 		ourTeam = t;
 		enemyName = e;
 		

@@ -1,4 +1,10 @@
 import java.util.ArrayList;
+import java.util.ListIterator;
+
+/**
+*
+* @author Riley
+*/
 
 public class UltimateSystem {
 	
@@ -24,5 +30,21 @@ public class UltimateSystem {
 	
 	public void removeTeam() {
 		//use iterator
+	}
+	
+	public int teamCount() {
+		return teams.size();
+	}
+	
+	public int tourneyCount() {
+		return tournies.size();
+	}
+	
+	public ListIterator<Team> getTeamsIterator() {
+		return teams.listIterator();				
+	}
+	
+	public ListIterator<Tournament> getTourniesIterator() {
+		return tournies.listIterator();				
 	}
 }

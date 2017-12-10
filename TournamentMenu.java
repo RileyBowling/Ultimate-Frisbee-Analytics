@@ -6,10 +6,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+*
+* @author Amy
+*/
+
 public class TournamentMenu extends UltimateMenu{
 
 
-    public TournamentMenu() {
+    public TournamentMenu(UltimateSystem ult, Tournament t) {
         makeWindow();
 
         GridLayout g = new GridLayout(2,1);
@@ -20,9 +25,7 @@ public class TournamentMenu extends UltimateMenu{
         getWindow().add(button1);
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
-
-                //ult.addTournament(t);
+            	TeamChoiceMenu tcm = new TeamChoiceMenu(ult, t);
             }
         });
 
@@ -30,7 +33,7 @@ public class TournamentMenu extends UltimateMenu{
         getWindow().add(button2);
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //stuff
+                GameDisplayMenu gdm = new GameDisplayMenu();
             }
         });
 

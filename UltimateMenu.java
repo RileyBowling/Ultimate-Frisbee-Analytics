@@ -6,53 +6,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+*
+* @author Riley
+*/
+
+//this is the parent class of all GUI elements, assures they all have the same window size and the "Ultimate Frisbee Score Keeper" window title
 public class UltimateMenu extends JFrame{
 	private JPanel window;
-	private UltimateSystem ult;
 	
 	public UltimateMenu() {
 		super("Ultimate Frisbee Score Keeper");
-		makeWindow();
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-        GridLayout g = new GridLayout(4,1);
-        window.setLayout(g);
-        
-		ult = new UltimateSystem();
-		
-		JButton button1 = new JButton("New Tournament");
-    	window.add(button1);
-    	button1.addActionListener(new ActionListener() { 
-    		public void actionPerformed(ActionEvent e) { 
-    			TournamentCreationMenu tcm = new TournamentCreationMenu();
-    			tcm.setVisible(true);
-    			//ult.addTournament(t);
-    		} 
-    	});
-    	
-    	JButton button2 = new JButton("Tournament List");
-    	window.add(button2);
-    	button2.addActionListener(new ActionListener() { 
-    		public void actionPerformed(ActionEvent e) { 
-    			//stuff
-    		} 
-    	});
-    	
-    	JButton button3 = new JButton("New Team");
-    	window.add(button3);
-    	button3.addActionListener(new ActionListener() { 
-    		public void actionPerformed(ActionEvent e) { 
-    			//stuff
-    		} 
-    	});
-    	
-    	JButton button4 = new JButton("Team List");
-    	window.add(button4);
-    	button4.addActionListener(new ActionListener() { 
-    		public void actionPerformed(ActionEvent e) { 
-    			//stuff
-    		} 
-    	});
 	}
 	
 	public void makeWindow() {
@@ -65,5 +29,5 @@ public class UltimateMenu extends JFrame{
 	public JPanel getWindow() {
 		return window;
 	}
-
+	
 }
