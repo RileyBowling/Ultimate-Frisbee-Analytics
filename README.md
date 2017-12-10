@@ -1,9 +1,9 @@
 # Ultimate Frisbee Analytics
-## A Final Project for CS 2300 at Saint Louis University
+### A Final Project for CS 2300 at Saint Louis University
 
 ### Group: Riley, Zohair, Amy
 
-### Project Objective:
+#### Project Objective:
 (given by our simulated clients)
 Create an application for tracking statistics in the sport Ultimate Frisbee.
 
