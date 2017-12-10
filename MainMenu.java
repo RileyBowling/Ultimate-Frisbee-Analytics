@@ -12,6 +12,11 @@ import javax.swing.JButton;
 public class MainMenu extends UltimateMenu{
 	private UltimateSystem ult;
 	
+	public static void main(String[] args) {
+		MainMenu menu = new MainMenu();
+		menu.setVisible(true);
+    }
+	
 	public MainMenu() {
 		makeWindow();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

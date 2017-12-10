@@ -16,7 +16,7 @@ import javax.swing.*;
  */
 public class OffensiveMenu extends GameMenu {
     
-    public OffensiveMenu(Game game,ActionListener o,ActionListener d) {
+    public OffensiveMenu(Game game, ActionListener o, ActionListener d) {
         super(game,o,d);
         
     }

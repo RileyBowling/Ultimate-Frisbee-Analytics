@@ -1,6 +1,5 @@
-
 public class Stats {
-	private Game game; //will be used to find out which stats object stored by a player object corresponds to which game, could also just pass a reference to the game possibly
+	private Game game;
 	private int scores;
 	private int throwaways;
 	private int assists;
@@ -32,18 +31,22 @@ public class Stats {
 	public int getDrops() {
 		return drops;
 	}
-        public int getDs() {
+    
+	public int getDs() {
 		return dpoints;
 	}
-        public int getTurnovers() {
-            return turnovers;
-        }
-        public int getCallahans() {
-            return callahans;
-        }
-        public int getEnemyScore() {
-            return game.getEnemyScore();
-        }
+    
+	public int getTurnovers() {
+		return turnovers;
+    }
+    
+	public int getCallahans() {
+		return callahans;
+    }
+        
+	public int getEnemyScore() {
+		return game.getEnemyScore();
+    }
 	
 	public void incrementScores() {
 		scores+=1;
@@ -60,13 +63,16 @@ public class Stats {
 	public void incrementDrops() {
 		drops+=1;
 	}
-        public void incrementDs() {
+    
+	public void incrementDs() {
 		dpoints+=1;
 	}
-        public void incrementTurnovers() {
+    
+	public void incrementTurnovers() {
 		turnovers+=1;
 	}
-         public void incrementCallahans() {
+    
+	public void incrementCallahans() {
 		callahans+=1;
 	}
          

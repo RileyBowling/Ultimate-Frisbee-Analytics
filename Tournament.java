@@ -14,11 +14,19 @@ public class Tournament {
 		games.add(g);
 	}
 	
-	public void removeGame() {
-		//add remove
+	public void removeGame(Game g) {
+		ListIterator<Game> iter = games.listIterator();
+		while(iter.hasNext()) {
+			if (iter.next() == g)
+				iter.remove();
+		}
 	}
 	
-	public ListIterator<Game> getGameIterator() {
+	public int gameCount() {
+		return games.size();
+	}
+	
+	public ListIterator<Game> getGamesIterator() {
 		return games.listIterator();				
 	}
 	

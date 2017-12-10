@@ -24,12 +24,20 @@ public class UltimateSystem {
 		teams.add(t);
 	}
 	
-	public void removeTournament() {
-		//use iterator
+	public void removeTournament(Tournament t) {
+		ListIterator<Tournament> iter = tournies.listIterator();
+		while(iter.hasNext()) {
+			if (iter.next() == t)
+				iter.remove();
+		}
 	}
 	
-	public void removeTeam() {
-		//use iterator
+	public void removeTeam(Team t) {
+		ListIterator<Team> iter = teams.listIterator();
+		while(iter.hasNext()) {
+			if (iter.next() == t)
+				iter.remove();
+		}
 	}
 	
 	public int teamCount() {

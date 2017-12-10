@@ -28,8 +28,10 @@ public class TournamentDisplayMenu extends DisplayMenu {
 	    	getDisplay().add(button);
 	    	button.addActionListener(new ActionListener() { 
 	    		public void actionPerformed(ActionEvent e) { 
-	    			TeamChoiceMenu tm = new TeamChoiceMenu(ult, t);
+	    			TournamentMenu tm = new TournamentMenu(ult, t);
 	    			tm.setVisible(true);
+	    			setVisible(false);
+	    			dispose();
 	        	} 
 	        });
 	    }

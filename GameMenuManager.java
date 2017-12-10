@@ -19,7 +19,7 @@ public class GameMenuManager extends UltimateMenu {
     private GameMenu o_window;
     private GameMenu d_window;
     
-    public GameMenuManager(Game game) {
+    public GameMenuManager(Game game, String s) {
 
         makeWindow();
         JPanel window = getWindow();
@@ -31,11 +31,11 @@ public class GameMenuManager extends UltimateMenu {
         ,new d_window_set(window,cardlayout));
         window.add(o_window,"o");
         window.add(d_window, "d");
-        cardlayout.show(window, "o");
+        cardlayout.show(window, s);
        
     }
     public class o_window_set implements ActionListener {
-        JPanel win;
+    	JPanel win;
         CardLayout c;
         public o_window_set(JPanel jp,CardLayout c) {
             win = jp;

@@ -14,8 +14,12 @@ public class Team {
 		players.add(p);
 	}
 	
-	public void removePlayer() {
-		//add later
+	public void remove(Player p) {
+		ListIterator<Player> iter = players.listIterator();
+		while(iter.hasNext()) {
+			if (iter.next() == p)
+				iter.remove();
+		}
 	}
 	
 	public int getTeamSize() {

@@ -27,8 +27,8 @@ public class TeamDisplayMenu extends DisplayMenu {
 	    	JButton button = new JButton(team.getName());
 	    	getDisplay().add(button);
 	    	button.addActionListener(new ActionListener() { 
-	    	public void actionPerformed(ActionEvent e) { 
-	    		PlayerDisplayMenu pdm = new PlayerDisplayMenu(team);
+	    		public void actionPerformed(ActionEvent e) { 
+	    			PlayerDisplayMenu pdm = new PlayerDisplayMenu(team);
 	        		pdm.setVisible(true);
 	        	} 
 	        });

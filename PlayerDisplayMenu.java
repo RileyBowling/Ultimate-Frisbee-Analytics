@@ -24,7 +24,7 @@ public class PlayerDisplayMenu extends DisplayMenu {
 	    while (players.hasNext()) {
 	    	Player p = players.next();
 	        	
-	    	JLabel lbl = new JLabel(p.getName());
+	    	JLabel lbl = new JLabel(p.getNickname());
 	    	getDisplay().add(lbl);
 	    }
 	     

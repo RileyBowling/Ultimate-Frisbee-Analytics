@@ -26,6 +26,7 @@ public class TournamentMenu extends UltimateMenu{
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	TeamChoiceMenu tcm = new TeamChoiceMenu(ult, t);
+            	tcm.setVisible(true);
             }
         });
 
@@ -33,7 +34,8 @@ public class TournamentMenu extends UltimateMenu{
         getWindow().add(button2);
         button2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                GameDisplayMenu gdm = new GameDisplayMenu();
+                GameDisplayMenu gdm = new GameDisplayMenu(t);
+                gdm.setVisible(true);
             }
         });
 

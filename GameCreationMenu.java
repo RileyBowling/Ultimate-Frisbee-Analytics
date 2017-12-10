@@ -24,9 +24,12 @@ public class GameCreationMenu extends CreationMenu{
         JComboBox<String> combo = new JComboBox<String>();
         
         // add items to the combo box
+        combo.addItem("9");
         combo.addItem("11");
+        combo.addItem("13");
         combo.addItem("15");
-        combo.addItem("21");
+        combo.addItem("17");
+        combo.addItem("Time Based");
                 
         JLabel lbl3 = new JLabel("Choose a Starting Position", SwingConstants.CENTER);
         
@@ -40,12 +43,20 @@ public class GameCreationMenu extends CreationMenu{
     	button.addActionListener(new ActionListener() { 
     		public void actionPerformed(ActionEvent e) {
     			String gl = (String) combo.getSelectedItem();
-    		    String sp = (String) combo.getSelectedItem();
+    		    String sp = (String) combo2.getSelectedItem();
+    		    if (sp.equals("Defense")) {
+    		    	sp = "d";
+    		    }
+    		    
+    		    else {
+    		    	sp = "o";
+    		    }
+    		    
     		    if (!txt.getText().equals("")) {
     		    	Game g = new Game(team, txt.getText(), gl);
     		    	t.addGame(g);
-    		    	//GameMenu gm = new GameMenu(g);
-    		    	//gm.setVisible(true);
+    		    	GameMenuManager gmm = new GameMenuManager(g, sp);
+    		    	gmm.setVisible(true);
     		    }
     			done();
     		} 

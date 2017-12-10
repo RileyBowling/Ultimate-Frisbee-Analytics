@@ -46,7 +46,6 @@ public class GameMenu extends JPanel {
         scoreDisplay.setLayout(g2);
         scoreDisplay.setBorder(BorderFactory.createEmptyBorder(0,30,0,0));
         scoreButtonLabeler(scoreDisplay);
-        //probably a better way to fill empty grid spots
         
         JPanel gameScorePnl = new JPanel();
         JLabel g_scoreLbl = new JLabel("Game Score"); 
@@ -151,7 +150,7 @@ public class GameMenu extends JPanel {
 //////        jp.add(new JLabel("A"));
 //////        jp.add(new JLabel("D"));
 //////        jp.add(new JLabel("S"));
-   }
+    }
     public void t_setup(Stats st, JButton tbutton) {
 
     }
@@ -167,8 +166,8 @@ public class GameMenu extends JPanel {
 //        public void scoreIncrementer(Game g) {
 //            
 //        }
-        public void removeWindow(JPanel parent) {
+    public void removeWindow(JPanel parent) {
            
-        }
+    }
     
 }

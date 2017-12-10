@@ -1,21 +1,20 @@
+import java.text.SimpleDateFormat;
 
 public class Game {
 	private Team ourTeam;
 	private String enemyName;
-	private int gameDate;
+	private String gameDate;
 	private int ourScore;
 	private int enemyScore;
 	private int gameLimit;
-	private boolean gameOver;
 	
 	public Game(Team t, String e, String gl) {
 		ourTeam = t;
 		enemyName = e;
 		
-		//gamedate = systemdate
+		gameDate = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
 		ourScore = 0;
 		enemyScore = 0;
-		gameOver = false;
 	}
 	
 	public Team getTeam() {
@@ -26,7 +25,7 @@ public class Game {
 		return enemyName;
 	}
 	
-	public int getGameDate() {
+	public String getGameDate() {
 		return gameDate;
 	}
 	
@@ -42,10 +41,6 @@ public class Game {
 		return gameLimit;
 	}
 	
-	public boolean isGameOver() {
-		return gameOver;
-	}
-	
 	public void setEnemyName(String n) {
 		enemyName = n;
 	}
@@ -58,16 +53,8 @@ public class Game {
 		enemyScore += s;
 	}
 	
-	public void setGameDate(int d) {
-		gameDate = d;
-	}
-	
 	public void setGameLimit(int l) {
 		gameLimit = l;
-	}
-	
-	public void setGameOver(boolean b) {
-		gameOver = b;
 	}
 	
 }
