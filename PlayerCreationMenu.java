@@ -39,9 +39,12 @@ public class PlayerCreationMenu extends CreationMenu {
     				if (txt3.getText().equals("")) {
     					n = 0; //0 is the default number
     				}
-    				else {
+    				else if (txt3.getText().matches("\\d+")){
     					n = Integer.parseInt(txt3.getText());
     				}
+                                else {
+                                    n=0;
+                                }
     				Player p = new Player(txt.getText(),txt2.getText(),n);
         			team.addPlayer(p);
     			}

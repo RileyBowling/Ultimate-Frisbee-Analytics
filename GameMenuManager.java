@@ -37,9 +37,9 @@ public class GameMenuManager extends UltimateMenu {
         gameScorePnl.add(g_scoreDisplay);
         
         o_window = new OffensiveMenu(game, g_scoreDisplay,
-                new d_window_set(card,cardlayout));
+                new d_window_set(card,cardlayout), new gameKiller(game));
         d_window = new DefensiveMenu(game, g_scoreDisplay, 
-                new o_window_set(card,cardlayout));
+                new o_window_set(card,cardlayout), new gameKiller(game));
         card.add(o_window,"o");
         card.add(d_window, "d");
         cardlayout.show(card, s);
@@ -47,10 +47,23 @@ public class GameMenuManager extends UltimateMenu {
         window.add(card);
         window.add(gameScorePnl);
         
-
        
     }
-
+    
+    public class gameKiller implements ActionListener {
+        Game game;
+        int end;
+        public gameKiller(Game g) {
+            game = g;
+            end  = game.getGameLimit();
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (game.getOurScore() == end-1 || game.getEnemyScore() == end-1) { 
+            dispose();
+            }
+        }
+    }
     public class o_window_set implements ActionListener {
     	JPanel win;
         CardLayout c;

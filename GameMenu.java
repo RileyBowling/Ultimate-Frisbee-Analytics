@@ -16,7 +16,8 @@ import javax.swing.*;
  */
 public class GameMenu extends JPanel {
 
-    public GameMenu(Game game, JTextField disp, ActionListener a) {
+    public GameMenu(Game game, JTextField disp, ActionListener a,
+            ActionListener gk) {
         
         setLayout(new FlowLayout());
 //        setLayout(new GridLayout(2,1));
@@ -112,7 +113,7 @@ public class GameMenu extends JPanel {
 
         		} 
         	});
-                addWindowSetters(tbutton,abutton,dbutton,sbutton,a);
+                addWindowSetters(tbutton,abutton,dbutton,sbutton,a,gk);
                 //sbutton.addActionListener(o);
 //                sbutton.addActionListener(d);
                 //abutton.addActionListener(d);
@@ -152,7 +153,7 @@ public class GameMenu extends JPanel {
 //        return g_scoreDisplay;
 //    }
     public void addWindowSetters(JButton t, JButton a_, JButton d,
-            JButton s,ActionListener a) {
+            JButton s,ActionListener a, ActionListener gk) {
         
     }
     public void scoreButtonLabeler (JPanel jp){

@@ -15,6 +15,7 @@ public class Game {
 		gameDate = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
 		ourScore = 0;
 		enemyScore = 0;
+                gameLimit = Integer.valueOf(gl);
 	}
 	
 	public Team getTeam() {

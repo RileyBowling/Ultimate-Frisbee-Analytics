@@ -16,8 +16,9 @@ import javax.swing.*;
  */
 public class DefensiveMenu extends GameMenu {
 
-    public DefensiveMenu(Game game, JTextField disp, ActionListener a) {
-        super(game,disp,a);
+    public DefensiveMenu(Game game, JTextField disp, ActionListener a,
+            ActionListener gk) {
+        super(game,disp,a,gk);
     }
 
         public void scoreButtonLabeler (JPanel jp){
@@ -26,11 +27,14 @@ public class DefensiveMenu extends GameMenu {
         jp.add(new JLabel("Turnover"));
         jp.add(new JLabel("Callahan"));
     }
-    public void addWindowSetters(JButton t, JButton a_, JButton d,
-            JButton s,ActionListener a) {
-        t.addActionListener(a);
-        a_.addActionListener(a);
-        d.addActionListener(a);
+    public void addWindowSetters(JButton t, JButton a, JButton d,
+            JButton s,ActionListener al, ActionListener gk) {
+        t.addActionListener(al);
+        a.addActionListener(al);
+        d.addActionListener(al);
+        //add gamekiller
+        a.addActionListener(gk);
+        s.addActionListener(gk);
     }
        public void t_setup(Stats st, JButton tbutton) {
         	st.incrementDs();
