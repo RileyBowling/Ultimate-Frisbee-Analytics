@@ -26,7 +26,8 @@ public class GameMenuManager extends UltimateMenu {
         JPanel card = new JPanel();
         CardLayout cardlayout = new CardLayout();
         card.setLayout(cardlayout);
-        window.setLayout(new GridLayout(2,1));
+        BoxLayout bl = new BoxLayout(window,BoxLayout.Y_AXIS);
+        window.setLayout(bl);
         
         JPanel gameScorePnl = new JPanel();
         JLabel g_scoreLbl = new JLabel("Game Score"); 
