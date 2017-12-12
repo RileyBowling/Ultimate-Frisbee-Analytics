@@ -23,17 +23,33 @@ public class GameMenuManager extends UltimateMenu {
 
         makeWindow();
         JPanel window = getWindow();
+        JPanel card = new JPanel();
         CardLayout cardlayout = new CardLayout();
-        window.setLayout(cardlayout);
-        o_window = new OffensiveMenu(game, new o_window_set(window,cardlayout)
-        ,new d_window_set(window,cardlayout));
-        d_window = new DefensiveMenu(game, new o_window_set(window,cardlayout)
-        ,new d_window_set(window,cardlayout));
-        window.add(o_window,"o");
-        window.add(d_window, "d");
-        cardlayout.show(window, s);
+        card.setLayout(cardlayout);
+        window.setLayout(new GridLayout(2,1));
+        
+        JPanel gameScorePnl = new JPanel();
+        JLabel g_scoreLbl = new JLabel("Game Score"); 
+        JTextField g_scoreDisplay = new JTextField(10);
+        g_scoreDisplay.setEditable(false);
+        gameScorePnl.add(g_scoreLbl);
+        gameScorePnl.add(g_scoreDisplay);
+        
+        o_window = new OffensiveMenu(game, g_scoreDisplay,
+                new d_window_set(card,cardlayout));
+        d_window = new DefensiveMenu(game, g_scoreDisplay, 
+                new o_window_set(card,cardlayout));
+        card.add(o_window,"o");
+        card.add(d_window, "d");
+        cardlayout.show(card, s);
+        
+        window.add(card);
+        window.add(gameScorePnl);
+        
+
        
     }
+
     public class o_window_set implements ActionListener {
     	JPanel win;
         CardLayout c;
@@ -43,7 +59,7 @@ public class GameMenuManager extends UltimateMenu {
         }
         @Override
         public void actionPerformed(ActionEvent e) {
-                c.show(win, "d");
+                c.show(win, "o"); 
         }
         
     }
@@ -56,7 +72,7 @@ public class GameMenuManager extends UltimateMenu {
         }
         @Override
         public void actionPerformed(ActionEvent e) {
-                c.show(win, "o");
+                c.show(win, "d");
         }
         
     }

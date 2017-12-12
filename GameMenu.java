@@ -15,20 +15,21 @@ import javax.swing.*;
  * @author Zohair
  */
 public class GameMenu extends JPanel {
-   
-    public GameMenu(Game game, ActionListener o, ActionListener d) {
-        
 
-        setLayout(new GridLayout(2,1));
+    public GameMenu(Game game, JTextField disp, ActionListener a) {
+        
+        setLayout(new FlowLayout());
+//        setLayout(new GridLayout(2,1));
 //        getWindow().setLayout(new CardLayout());
 //        JPanel parent = new JPanel( new GridLayout(2,1));
         
         
         Team team = game.getTeam();
-        JPanel flow = new JPanel(new FlowLayout());
+//        JPanel flow = new JPanel(new FlowLayout());
         //player column
         JPanel playerDisplay = new JPanel();
-        flow.add(playerDisplay);
+//        flow.add(playerDisplay);
+        add(playerDisplay);
         GridLayout g1 = new GridLayout(team.getTeamSize()+1,1);
         g1.setHgap(30);
         g1.setVgap(30);
@@ -38,7 +39,8 @@ public class GameMenu extends JPanel {
         
         //scoring column
         JPanel scoreDisplay = new JPanel();
-        flow.add(scoreDisplay);
+//        flow.add(scoreDisplay);
+        add(scoreDisplay);
         GridLayout g2 = new GridLayout(team.getTeamSize()+1,4);
         
         g2.setHgap(10);
@@ -47,12 +49,12 @@ public class GameMenu extends JPanel {
         scoreDisplay.setBorder(BorderFactory.createEmptyBorder(0,30,0,0));
         scoreButtonLabeler(scoreDisplay);
         
-        JPanel gameScorePnl = new JPanel();
-        JLabel g_scoreLbl = new JLabel("Game Score"); 
-        JTextField g_scoreDisplay = new JTextField(10);
-        g_scoreDisplay.setEditable(false);
-        gameScorePnl.add(g_scoreLbl);
-        gameScorePnl.add(g_scoreDisplay);
+//        JPanel gameScorePnl = new JPanel();
+//        JLabel g_scoreLbl = new JLabel("Game Score"); 
+//        g_scoreDisplay = new JTextField(10);
+//        g_scoreDisplay.setEditable(false);
+//        gameScorePnl.add(g_scoreLbl);
+//        gameScorePnl.add(g_scoreDisplay);
         
         
         ListIterator<Player> players = team.getPlayerIterator();
@@ -79,8 +81,8 @@ public class GameMenu extends JPanel {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			a_setup(st,abutton,game);
-                                game.IncrementEnemyScore(1);
-                                updateTotScore(game,g_scoreDisplay);
+                                //game.IncrementEnemyScore(1);
+                                updateTotScore(game,disp);
         		} 
         	});
         	
@@ -101,7 +103,7 @@ public class GameMenu extends JPanel {
         			s_setup(st,sbutton,game);
                                 game.IncrementScore(1);
 //                                scoreIncrementer(game);
-                                updateTotScore(game,g_scoreDisplay);
+                                updateTotScore(game,disp);
 
 //=======
         			
@@ -110,9 +112,10 @@ public class GameMenu extends JPanel {
 
         		} 
         	});
-                sbutton.addActionListener(o);
+                addWindowSetters(tbutton,abutton,dbutton,sbutton,a);
+                //sbutton.addActionListener(o);
 //                sbutton.addActionListener(d);
-                abutton.addActionListener(d);
+                //abutton.addActionListener(d);
         }
 //<<<<<<< HEAD
         
@@ -122,8 +125,8 @@ public class GameMenu extends JPanel {
 //=======
         
         
-        add(flow);
-        add(gameScorePnl);
+//        add(flow);
+//        add(gameScorePnl);
 
 //        getWindow().add(playerDisplay);
 //        getWindow().add(scoreDisplay);
@@ -144,6 +147,13 @@ public class GameMenu extends JPanel {
         String game_score = String.valueOf(g.getOurScore()) + 
             "-"+String.valueOf(g.getEnemyScore());
         f.setText(game_score);
+    }
+//    public JTextField getScoreDisplay() {
+//        return g_scoreDisplay;
+//    }
+    public void addWindowSetters(JButton t, JButton a_, JButton d,
+            JButton s,ActionListener a) {
+        
     }
     public void scoreButtonLabeler (JPanel jp){
 //////        jp.add(new JLabel("T"));

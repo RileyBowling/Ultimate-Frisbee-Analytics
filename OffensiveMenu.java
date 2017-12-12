@@ -17,8 +17,8 @@ import javax.swing.*;
  */
 public class OffensiveMenu extends GameMenu {
 
-    public OffensiveMenu(Game game, ActionListener o, ActionListener d) {
-        super(game,o,d);
+    public OffensiveMenu(Game game, JTextField disp, ActionListener a) {
+        super(game,disp,a);
 
     }
 
@@ -27,6 +27,13 @@ public class OffensiveMenu extends GameMenu {
         jp.add(new JLabel("Assists"));
         jp.add(new JLabel("Drop"));
         jp.add(new JLabel("Score"));
+    }
+      
+     public void addWindowSetters(JButton t, JButton a_, JButton d,
+            JButton s,ActionListener a) {
+        t.addActionListener(a);
+        d.addActionListener(a);
+        s.addActionListener(a);
     }
 
         public void t_setup(Stats st, JButton tbutton) {
@@ -43,6 +50,7 @@ public class OffensiveMenu extends GameMenu {
     }
         public void s_setup(Stats st, JButton sbutton, Game g) {
         	st.incrementScores();
+                //g.IncrementScore(1);
         	sbutton.setText(String.valueOf(st.getScores()));
     }
 //        public void scoreIncrementer(Game g) {
