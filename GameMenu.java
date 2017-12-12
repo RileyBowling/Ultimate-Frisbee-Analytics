@@ -72,6 +72,7 @@ public class GameMenu extends JPanel {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
                                 t_setup(st,tbutton);
+                                updateTotScore(game,disp);
 
         		} 
         	});
@@ -93,6 +94,7 @@ public class GameMenu extends JPanel {
         		public void actionPerformed(ActionEvent e) { 
         			Stats st = player.getStats(game);
         			d_setup(st,dbutton);
+                                updateTotScore(game,disp);
         		} 
         	});
         	
